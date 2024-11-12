@@ -11,16 +11,7 @@ export class CityEntity {
 
   @Column({ name: 'name', nullable: false })
   name: string;
-
-  @Column({ name: 'address_number', nullable: false })
-  address_number: number;
-
-  @Column({ name: 'cep', nullable: false })
-  cep: string;
-
-  @Column({ name: 'city_id', nullable: false })
-  city_id: number;
-
+  
   @CreateDateColumn({ name: 'created_at' })
   created_at: Date;
   
