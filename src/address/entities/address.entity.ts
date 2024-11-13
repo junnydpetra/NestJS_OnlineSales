@@ -12,7 +12,7 @@ export class AddressEntity {
   @Column({ name: 'complement', nullable: true })
   complement: string;
 
-  @Column({ name: 'address_number', nullable: false })
+  @Column({ name: 'number', nullable: false })
   address_number: number;
 
   @Column({ name: 'cep', nullable: false })
