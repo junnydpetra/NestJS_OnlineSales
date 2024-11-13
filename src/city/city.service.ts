@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CityEntity } from './entities/city.entity';
@@ -22,5 +22,19 @@ export class CityService {
             },
         })
     )
+  }
+
+  async findCityById(city_id: number): Promise<CityEntity> {
+    const city = await this.cityRepository.findOne({
+        where: {
+            id: city_id
+        }
+    });
+
+    if (!city) {
+        throw new NotFoundException(`City ID: ${city_id} not found!`);
+    }
+
+    return city;
   }
 }
